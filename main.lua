@@ -477,7 +477,7 @@ local function createESP(player, isSquad)
 
 			local highlight = Instance.new("Highlight", playerEsp)
 			highlight.Adornee = character
-			highlight.FillColor = isSquad and Color3.fromRGB(8, 177, 255) or Color3.fromRGB(255, 0, 0)
+			highlight.FillColor = table.find(squads, player.Name) and Color3.fromRGB(8, 177, 255) or Color3.fromRGB(255, 0, 0)
 			highlight.FillTransparency = 0.75
 			highlight.OutlineTransparency = 0.5
 
