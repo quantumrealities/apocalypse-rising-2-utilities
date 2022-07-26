@@ -486,10 +486,9 @@ local function createESP(player, isSquad)
 			billboard.Adornee = character:WaitForChild("Head")
 			billboard.ExtentsOffsetWorldSpace = Vector3.new(0, 0.5, 0)
 			billboard.StudsOffset = Vector3.new(0, 1, 0)
-			billboard.StudsOffsetWorldSpace = Vector3.new(0, 1, 0)
+			billboard.StudsOffsetWorldSpace = Vector3.new(0, 2, 0)
 			billboard.AlwaysOnTop = true
 			billboard.Size = UDim2.new(0, 5, 0, 5)
-			billboard.StudsOffset = Vector3.new(0, 0, 0)
 
 			local frame = Instance.new("Frame", billboard)
 			frame.ZIndex = 10
