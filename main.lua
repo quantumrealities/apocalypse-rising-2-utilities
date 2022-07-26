@@ -514,7 +514,7 @@ local function createESP(player, isSquad)
 			health.BackgroundTransparency = 1
 			health.Position = UDim2.new(0, 0, 0, -32)
 			health.Size = UDim2.new(1, 0, 10, 0)
-			health.TextColor3 = table.find(squads, player.Name) and Color3.fromRGB(8, 177, 255) or Color3.fromRGB(255, 255, 255)
+			health.TextColor3 = Color3.fromRGB(255, 255, 255)
 			health.Font = Enum.Font.Gotham
 			health.TextSize = 13
 			health.TextStrokeTransparency = 0.5
@@ -526,7 +526,7 @@ local function createESP(player, isSquad)
 			distance.BackgroundTransparency = 1
 			distance.Position = UDim2.new(0, 0, 0, -18)
 			distance.Size = UDim2.new(1, 0, 10, 0)
-			distance.TextColor3 = table.find(squads, player.Name) and Color3.fromRGB(8, 177, 255) or Color3.fromRGB(255, 255, 255)
+			distance.TextColor3 = Color3.fromRGB(255, 255, 255)
 			distance.Font = Enum.Font.Gotham
 			distance.TextSize = 13
 			distance.TextStrokeTransparency = 0.5
