@@ -502,7 +502,7 @@ local function createESP(player, isSquad)
 			name.BackgroundTransparency = 1
 			name.Position = UDim2.new(0, 0, 0, -45)
 			name.Size = UDim2.new(1, 0, 10, 0)
-			name.TextColor3 = Color3.fromRGB(255, 255, 255)
+			name.TextColor3 = table.find(squads, player.Name) and Color3.fromRGB(8, 177, 255) or Color3.fromRGB(255, 255, 255)
 			name.Font = Enum.Font.GothamBold
 			name.TextSize = 13
 			name.TextStrokeTransparency = 0.5
@@ -526,33 +526,33 @@ local function createESP(player, isSquad)
 			distance.BackgroundTransparency = 1
 			distance.Position = UDim2.new(0, 0, 0, -18)
 			distance.Size = UDim2.new(1, 0, 10, 0)
-			distance.TextColor3 = Color3.fromRGB(255, 255, 255)
+			distance.TextColor3 = table.find(squads, player.Name) and Color3.fromRGB(8, 177, 255) or Color3.fromRGB(255, 255, 255)
 			distance.Font = Enum.Font.Gotham
 			distance.TextSize = 13
 			distance.TextStrokeTransparency = 0.5
-
-			if not onCharacterAdded[player.Name] then
-				onCharacterAdded[player.Name] = player.CharacterAdded:Connect(function(character)
-					if table.find(squads, player.Name) then
-						createESP(player, true)
-					else
-						createESP(player)
-					end
-				end)
-			end
-
-			if not onCharacterRemoving[player.Name] then
-				onCharacterRemoving[player.Name] = player.CharacterRemoving:Connect(function()
-					local playerFolder = espFolder:FindFirstChild(player.Name) 
-					
-					if playerFolder then
-						playerFolder:Destroy()
-					end
-				end)
-			end
 		end
 	else
 		print("Could not find character for", player.Name)
+	end
+
+	if not onCharacterAdded[player.Name] then
+		onCharacterAdded[player.Name] = player.CharacterAdded:Connect(function(character)
+			if table.find(squads, player.Name) then
+				createESP(player, true)
+			else
+				createESP(player)
+			end
+		end)
+	end
+
+	if not onCharacterRemoving[player.Name] then
+		onCharacterRemoving[player.Name] = player.CharacterRemoving:Connect(function()
+			local playerFolder = espFolder:FindFirstChild(player.Name) 
+			
+			if playerFolder then
+				playerFolder:Destroy()
+			end
+		end)
 	end
 end
 
